@@ -1,0 +1,186 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primaire:     #6C63FF;
+    --primaire-dark:#5a52d5;
+    --fond:         #f0f2f5;
+    --blanc:        #ffffff;
+    --texte:        #1a1a2e;
+    --texte-clair:  #666;
+    --bordure:      #e0e0e0;
+    --ombre:        0 4px 24px rgba(0,0,0,0.08);
+    --rayon:        16px;
+    --transition:   0.25s ease;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: var(--fond);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.app {
+    width: 100%;
+    max-width: 480px;
+}
+
+.app-titre {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--primaire);
+    margin-bottom: 28px;
+}
+
+/* ── RECHERCHE ────────────────────────────────────── */
+
+.recherche {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input {
+    flex: 1;
+    border: 2px solid var(--bordure);
+    border-radius: 12px;
+    padding: 14px 18px;
+    font-size: 1rem;
+    font-family: inherit;
+    outline: none;
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+input:focus {
+    border-color: var(--primaire);
+    box-shadow: 0 0 0 4px rgba(108, 99, 255, 0.12);
+}
+
+#btn-recherche {
+    background: var(--primaire);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 14px 22px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background var(--transition), transform var(--transition);
+}
+
+#btn-recherche:hover {
+    background: var(--primaire-dark);
+    transform: translateY(-1px);
+}
+
+#btn-recherche:active {
+    transform: translateY(0);
+}
+
+/* ── LOADER ───────────────────────────────────────── */
+
+@keyframes rotation {
+    to { transform: rotate(360deg); }
+}
+
+.loader {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(108, 99, 255, 0.2);
+    border-top-color: var(--primaire);
+    border-radius: 50%;
+    animation: rotation 0.7s linear infinite;
+    margin: 30px auto;
+}
+
+/* ── ERREUR ───────────────────────────────────────── */
+
+.erreur {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    color: #dc2626;
+    border-radius: var(--rayon);
+    padding: 16px 20px;
+    text-align: center;
+    font-size: 0.95rem;
+}
+
+/* ── CARTE MÉTÉO ──────────────────────────────────── */
+
+@keyframes slide-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.meteo-carte {
+    background: var(--blanc);
+    border-radius: var(--rayon);
+    padding: 32px;
+    box-shadow: var(--ombre);
+    animation: slide-up 0.4s ease-out forwards;
+}
+
+.meteo-entete {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 28px;
+}
+
+.meteo-ville {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--texte);
+    margin-bottom: 6px;
+}
+
+.meteo-description {
+    font-size: 0.95rem;
+    color: var(--texte-clair);
+    text-transform: capitalize;
+}
+
+.meteo-temp {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--primaire);
+    line-height: 1;
+}
+
+/* ── DÉTAILS ──────────────────────────────────────── */
+
+.meteo-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    padding-top: 24px;
+    border-top: 1px solid var(--bordure);
+}
+
+.detail {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.detail-label {
+    font-size: 0.8rem;
+    color: var(--texte-clair);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+.detail-valeur {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--texte);
+}

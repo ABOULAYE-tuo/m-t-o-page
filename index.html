@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LA METEO</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app">
+
+        <h1 class="app-titre">LA METEO</h1>
+
+        <!-- Barre de recherche -->
+        <div class="recherche">
+            <input
+                type="text"
+                id="champ-ville"
+                placeholder="Entrer une ville..."
+                autocomplete="on"
+            >
+            <button id="btn-recherche">Chercher</button>
+        </div>
+
+        <!-- Loader -->
+        <div class="loader" id="loader" style="display: none;"></div>
+
+        <!-- Message d'erreur -->
+        <div class="erreur" id="erreur" style="display: none;"></div>
+
+        <!-- Résultat météo (caché au départ) -->
+        <div class="meteo-carte" id="meteo-carte" style="display: none;">
+
+            <div class="meteo-entete">
+                <div>
+                    <h2 class="meteo-ville" id="meteo-ville"></h2>
+                    <p class="meteo-description" id="meteo-description"></p>
+                </div>
+                <div class="meteo-temp" id="meteo-temp"></div>
+            </div>
+
+            <div class="meteo-details">
+                <div class="detail">
+                    <span class="detail-label">Ressenti</span>
+                    <span class="detail-valeur" id="ressenti"></span>
+                </div>
+                <div class="detail">
+                    <span class="detail-label">Humidité</span>
+                    <span class="detail-valeur" id="humidite"></span>
+                </div>
+                <div class="detail">
+                    <span class="detail-label">Vent</span>
+                    <span class="detail-valeur" id="vent"></span>
+                </div>
+                <div class="detail">
+                    <span class="detail-label">Pression</span>
+                    <span class="detail-valeur" id="pression"></span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
